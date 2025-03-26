@@ -1,0 +1,160 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #181718;
+    padding-left: 5%; 
+    padding-right: 5%;
+}
+
+header {
+    background-color: #1c1c1d;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+section {
+    padding: 2px;
+    text-align: center;
+}
+
+#section1 {
+    background-color: #1c1c1d;
+    color: #fff;
+    padding-top: 20px;
+}
+
+.logo {
+
+    max-width: 100px;
+    margin: auto;
+
+}
+
+#section2 {
+
+    background-color: #1c1c1d;
+    color: #fff;
+    padding: 15px;
+    
+}
+
+#section2 button{
+    background-color: #b510d4;
+    color: #fff;
+    padding: 2px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-end; /* Align the button to the left within the form */
+    font-size: 16px;
+
+}
+
+#section2 button:hover{
+    background-color: #20b176;
+}
+
+.gallery {
+    max-width: 1000px;
+    margin: auto; 
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gallery img {
+    cursor: pointer;
+    max-width: 250px;
+    width: 35%;
+    margin: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.5);
+}
+
+#section3 {
+    background-color: #1c1c1d;
+    color: #fff;
+    padding: 15px;
+}
+
+footer {
+    background-color: #1c1c1d;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.social-icons img {
+    max-width: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.social-icons img:hover{
+    opacity: 70%;
+}
+
+
+/* Add these styles at the end of styles.css */
+
+#section3 form {
+    max-width: 550px;
+    margin: auto; /* Center the form horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2px;
+}
+
+#section3 form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 12px;
+}
+
+#section3 form input,
+#section3 form textarea {
+    background-color: #c7c5c6;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+#section3 form input:hover,
+#section3 form textarea:hover{
+    background-color: #252525;
+    color: #fff;
+    font-weight: bolder;
+}
+
+#section3 form button {
+    background-color: #b510d4;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: center;
+    /* align-self: flex-end; Align the button to the left within the form */
+    font-size: 12px;
+}
+
+#section3 form button:hover {
+    background-color: #20b176;
+}
+
+
