@@ -93,7 +93,7 @@ function handleFormSubmission(event) {
     
     // Get form data
     var formData = new FormData(event.target);
-    var name = formData.get('name');
+    var name = formData.get('name')+ ' ';
     var email = formData.get('email');
     var message = formData.get('message');
     
