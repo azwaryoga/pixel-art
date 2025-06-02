@@ -105,6 +105,39 @@ footer {
     opacity: 70%;
 }
 
+/* Tooltip container */
+.youtube-icon, .dribbble-icon, .instagram-icon {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.youtube-icon .tooltip,
+.dribbble-icon .tooltip,
+.instagram-icon .tooltip {
+  visibility: hidden;
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.youtube-icon:hover .tooltip,
+.dribbble-icon:hover .tooltip,
+.instagram-icon:hover .tooltip {
+  visibility: visible;
+}
 
 /* Add these styles at the end of styles.css */
 
