@@ -3,7 +3,7 @@ const allImages = [
     'aw/aw4.gif', 'aw/aw5.gif', 'aw/aw6.gif',
     'aw/aw7.gif', 'aw/aw8.gif', 'aw/aw9.gif',
     'aw/aw10.gif', 'aw/aw11.gif', 'aw/aw12.gif',
-    'aw/aw13.gif', 'aw/aw14.gif', 'aw/aw15.gif',
+    'aw/aw13.gif', 'aw/aw14.gif', 'aw/aw15.gif'
 ];
 
 const COLUMN_COUNT = 3;
