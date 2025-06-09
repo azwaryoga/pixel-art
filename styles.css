@@ -225,5 +225,51 @@ footer {
     color: #b510d4; /* Change color on hover */
 }
 
+/* Loading Overlay Styles */
+#loadingOverlay {
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #181718;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader {
+    border: 8px solid #252525;
+    border-top: 8px solid #b510d4;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+.loading-logo {
+    width: 64px;   /* Adjust to your preferred size */
+}
+
+.loading-text {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
 
 

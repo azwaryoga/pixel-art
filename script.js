@@ -34,7 +34,6 @@ function getImageRatios(imagePaths) {
 }
 
 // Distribute images into columns, only one vertical per column
-// ...existing code...
 function distributeImages(imagesWithRatios, columnCount) {
     const columns = Array.from({ length: columnCount }, () => []);
     const verticals = imagesWithRatios.filter(img => img.ratio < 0.9); // portrait
@@ -114,10 +113,61 @@ document.addEventListener('DOMContentLoaded', async function () {
     const imagesWithRatios = await getImageRatios(allImages);
     const columns = distributeImages(imagesWithRatios, COLUMN_COUNT);
     populateGalleryMasonry(columns);
+
+    // Wait for all images in the gallery to load before hiding the overlay
+    const gallery = document.getElementById('imageGallery');
+    const imgs = gallery.querySelectorAll('img');
+    let loaded = 0;
+    let minTimePassed = false;
+    let imagesLoaded = false;
+
+    // Ensure loading page stays at least 3 seconds
+    setTimeout(() => {
+        minTimePassed = true;
+        if (imagesLoaded) hideLoadingOverlay();
+    }, 2000);
+
+    function checkAndHideOverlay() {
+        if (minTimePassed && imagesLoaded) {
+            hideLoadingOverlay();
+        }
+    }
+
+    if (imgs.length === 0) {
+        imagesLoaded = true;
+        checkAndHideOverlay();
+    } else {
+        imgs.forEach(img => {
+            if (img.complete) {
+                loaded++;
+                if (loaded === imgs.length) {
+                    imagesLoaded = true;
+                    checkAndHideOverlay();
+                }
+            } else {
+                img.addEventListener('load', () => {
+                    loaded++;
+                    if (loaded === imgs.length) {
+                        imagesLoaded = true;
+                        checkAndHideOverlay();
+                    }
+                });
+                img.addEventListener('error', () => {
+                    loaded++;
+                    if (loaded === imgs.length) {
+                        imagesLoaded = true;
+                        checkAndHideOverlay();
+                    }
+                });
+            }
+        });
+    }
 });
 
-/* ...existing code for top button, smooth scroll, and form submission... */
-
+function hideLoadingOverlay() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) overlay.style.display = 'none';
+}
 
 //Top button disappears when at the top of the page
 window.addEventListener('scroll', function () {
