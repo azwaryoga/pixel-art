@@ -1,9 +1,9 @@
 const allImages = [
-    'aw/aw1.gif', 'aw/aw2.gif', 'aw/aw3.gif',
-    'aw/aw4.gif', 'aw/aw5.gif', 'aw/aw6.gif',
-    'aw/aw7.gif', 'aw/aw8.gif', 'aw/aw9.gif',
-    'aw/aw10.gif', 'aw/aw11.gif', 'aw/aw12.gif',
-    'aw/aw13.gif', 'aw/aw14.gif', 'aw/aw15.gif'
+    'aw/aw1.webp', 'aw/aw2.webp', 'aw/aw3.webp',
+    'aw/aw4.webp', 'aw/aw5.webp', 'aw/aw6.webp',
+    'aw/aw7.webp', 'aw/aw8.webp', 'aw/aw9.webp',
+    'aw/aw10.webp', 'aw/aw11.webp', 'aw/aw12.webp',
+    'aw/aw13.webp', 'aw/aw14.webp', 'aw/aw15.webp'
 ];
 
 const COLUMN_COUNT = 3;
@@ -113,61 +113,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const imagesWithRatios = await getImageRatios(allImages);
     const columns = distributeImages(imagesWithRatios, COLUMN_COUNT);
     populateGalleryMasonry(columns);
-
-    // Wait for all images in the gallery to load before hiding the overlay
-    const gallery = document.getElementById('imageGallery');
-    const imgs = gallery.querySelectorAll('img');
-    let loaded = 0;
-    let minTimePassed = false;
-    let imagesLoaded = false;
-
-    // Ensure loading page stays at least 3 seconds
-    setTimeout(() => {
-        minTimePassed = true;
-        if (imagesLoaded) hideLoadingOverlay();
-    }, 2000);
-
-    function checkAndHideOverlay() {
-        if (minTimePassed && imagesLoaded) {
-            hideLoadingOverlay();
-        }
-    }
-
-    if (imgs.length === 0) {
-        imagesLoaded = true;
-        checkAndHideOverlay();
-    } else {
-        imgs.forEach(img => {
-            if (img.complete) {
-                loaded++;
-                if (loaded === imgs.length) {
-                    imagesLoaded = true;
-                    checkAndHideOverlay();
-                }
-            } else {
-                img.addEventListener('load', () => {
-                    loaded++;
-                    if (loaded === imgs.length) {
-                        imagesLoaded = true;
-                        checkAndHideOverlay();
-                    }
-                });
-                img.addEventListener('error', () => {
-                    loaded++;
-                    if (loaded === imgs.length) {
-                        imagesLoaded = true;
-                        checkAndHideOverlay();
-                    }
-                });
-            }
-        });
-    }
 });
-
-function hideLoadingOverlay() {
-    const overlay = document.getElementById('loadingOverlay');
-    if (overlay) overlay.style.display = 'none';
-}
 
 //Top button disappears when at the top of the page
 window.addEventListener('scroll', function () {
